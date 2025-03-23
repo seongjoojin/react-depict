@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src https://d3js.org/d3.v7.min.js vscode-resource: 'unsafe-inline'; style-src vscode-resource: 'unsafe-inline';">
+  <title>React 의존성 그래프</title>
+  
+  <!-- D3.js 라이브러리 로드 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- 스타일시트 로드 -->
+  <link rel="stylesheet" href="${stylesUri}">
+  
+  <!-- 그래프 데이터 정의 -->
+  <script>
+    const graphData = JSON.parse('${graphData}');
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div id="graph"></div>
+    <div id="details-panel"></div>
+  </div>
+  
+  <div class="tooltip" id="tooltip"></div>
+  
+  <!-- 스크립트 로드 -->
+  <script src="${scriptUri}"></script>
+</body>
+</html> 

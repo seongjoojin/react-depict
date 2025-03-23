@@ -1,0 +1,89 @@
+{
+  "name": "react-depict",
+  "displayName": "React Depict",
+  "publisher": "react-depict",
+  "description": "React Dependency Insight is a Visual Studio Code extension that automatically generates an interactive, real-time visualization of your React component dependency tree. Leveraging the power of the xyflow library, it transforms your codebase into a dynamic graph where each node represents a component and each edge denotes an import relationship. Designed for both monorepos and large-scale projects, the extension intelligently parses your project files, handles path aliases, and detects circular dependencies, all while offering features like clickable nodes for quick navigation and on-demand refreshes when your code changes. Enhance your development workflow by gaining instant insights into your project's architecture, optimizing your code structure, and simplifying debugging—all directly within your editor.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:react-depict.analyzeFocusedComponent",
+    "onCommand:react-depict.analyzeDependencies"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "react-depict.analyzeDependencies",
+        "title": "Show React Dependency Tree",
+        "category": "React Depict"
+      },
+      {
+        "command": "react-depict.analyzeFocusedComponent",
+        "title": "Show Dependency Tree for Specific Component",
+        "category": "React Depict"
+      },
+      {
+        "command": "react-depict.debugView",
+        "title": "Refresh Dependency Tree View",
+        "category": "React Depict"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.26.10",
+    "@babel/traverse": "^7.26.10",
+    "@babel/types": "^7.26.10",
+    "@types/babel__traverse": "^7.20.6",
+    "@types/d3": "^7.4.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@types/vscode": "1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.21.0",
+    "global": "^4.4.0",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stream-browserify": "^3.0.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "url": "^0.11.4",
+    "util": "^0.12.5",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@types/dagre": "^0.7.52",
+    "@xyflow/react": "^12.4.4",
+    "d3": "^7.9.0",
+    "dagre": "^0.8.5"
+  }
+}
